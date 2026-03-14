@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VibeSite - Welcome</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -45,9 +46,11 @@
             
             <section id="games" class="games-section">
                 <h2 class="section-title">Games</h2>
+                
+                <!-- Single Player Game -->
                 <div class="game-container">
                     <div class="game-header">
-                        <h3>Flappy Bird</h3>
+                        <h3>Flappy Bird (Single Player)</h3>
                         <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
                     </div>
                     <div class="game-wrapper">
@@ -67,6 +70,58 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Pong Multiplayer Game -->
+                <div class="game-container" style="margin-top: 40px;">
+                    <div class="game-header">
+                        <h3>Pong (2 Players)</h3>
+                    </div>
+                    <div id="pong-setup" class="multiplayer-setup">
+                        <div class="setup-options">
+                            <button id="create-room-btn" class="setup-btn">Create Room</button>
+                            <button id="join-room-btn" class="setup-btn">Join Room</button>
+                        </div>
+                        <div id="room-interface" class="room-interface hidden">
+                            <div id="room-code-display" class="room-code">
+                                <p>Room Code: <span id="room-code-text">-</span></p>
+                                <button id="copy-code-btn" class="copy-btn">Copy Code</button>
+                            </div>
+                            <div id="join-interface" class="join-interface hidden">
+                                <input type="text" id="room-code-input" placeholder="Enter room code" maxlength="6">
+                                <button id="connect-btn" class="connect-btn">Connect</button>
+                            </div>
+                            <div id="connection-status" class="connection-status hidden">
+                                <p id="status-text">Waiting for player...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-wrapper">
+                        <canvas id="pong-canvas"></canvas>
+                        <div id="pong-overlay" class="game-overlay">
+                            <div class="game-start-screen">
+                                <h2>Pong</h2>
+                                <p id="pong-instructions">Waiting for connection...</p>
+                                <button id="play-btn" class="play-btn hidden">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <div class="score-display pong-scores">
+                            <div>
+                                <span class="player-label">Your Score:</span>
+                                <span id="your-score">0</span>
+                            </div>
+                            <div>
+                                <span class="player-label">Opponent Score:</span>
+                                <span id="opponent-score">0</span>
+                            </div>
+                            <div>
+                                <span class="player-label">Match Score:</span>
+                                <span id="match-score">0 - 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         
@@ -77,5 +132,6 @@
     
     <script src="script.js"></script>
     <script src="game.js"></script>
+    <script src="pong-game.js"></script>
 </body>
 </html>

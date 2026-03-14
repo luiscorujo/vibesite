@@ -239,6 +239,40 @@ footer {
     margin-top: 20px;
 }
 
+.restart-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+}
+
+.final-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.high-score-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 10px 0;
+}
+
 .game-info {
     margin-top: 20px;
     text-align: center;
@@ -266,17 +300,227 @@ footer {
     height: 100vh;
 }
 
+.multiplayer-setup {
+    padding: 20px;
+    text-align: center;
+}
+
+.setup-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.setup-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.setup-btn:hover {
+    background: #5568d3;
+}
+
+.room-interface {
+    margin-top: 20px;
+}
+
+.room-interface.hidden {
+    display: none;
+}
+
+.room-code {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.room-code p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#room-code-text {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #667eea;
+    letter-spacing: 2px;
+}
+
+.copy-btn {
+    background: #32CD32;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: #28a428;
+}
+
+.join-interface {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.join-interface.hidden {
+    display: none;
+}
+
+#room-code-input {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-family: monospace;
+    letter-spacing: 2px;
+    width: 150px;
+}
+
+#room-code-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.connect-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.connect-btn:hover {
+    background: #5568d3;
+}
+
+.connection-status {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.connection-status.hidden {
+    display: none;
+}
+
+.connection-status.connected {
+    background: #d4edda;
+    color: #155724;
+}
+
+.connection-status.waiting {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.connection-status.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.multiplayer-scores, .pong-scores {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.play-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.play-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#pong-canvas {
+    display: block;
+    width: 100%;
+    height: 400px;
+    background: #000;
+}
+
+.multiplayer-scores > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.player-label {
+    font-weight: 600;
+    color: #333;
+}
+
+#multiplayer-canvas {
+    display: block;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 70%, #90EE90 70%, #90EE90 100%);
+}
+
 @media (max-width: 768px) {
     .game-container {
         padding: 20px;
     }
     
-    #game-canvas {
+    #game-canvas, #multiplayer-canvas, #pong-canvas {
         height: 300px;
     }
     
     .section-title {
         font-size: 2rem;
+    }
+    
+    .setup-options {
+        flex-direction: column;
+    }
+    
+    .join-interface {
+        flex-direction: column;
+    }
+    
+    #room-code-input {
+        width: 100%;
     }
 }
 
